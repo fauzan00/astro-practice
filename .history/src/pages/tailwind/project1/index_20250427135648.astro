@@ -1,0 +1,192 @@
+---
+import "../../../styles/tailwind.css";
+import Layout from "../../../layouts/tailwind.astro";
+const pageTitle = "tailwind";
+---
+
+<Layout title={pageTitle}>
+  <!-- s -->
+
+  <!-- Navigation Bar -->
+  <nav
+    class="bg-gradient-to-r from-sky-900 via-black to-gray-900 text-white shadow-md"
+  >
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold">fauzan00</h1>
+      <!-- <ul class="flex space-x-6">
+            <li><a href="#" class="hover:text-indigo-400 transition">Home</a></li>
+            <li><a href="#" class="hover:text-indigo-400 transition">About</a></li>
+            <li><a href="#" class="hover:text-indigo-400 transition">Contact</a></li>
+        </ul> -->
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-green-500 to-blue-500 text-white py-10">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-extrabold">TIPS</h1>
+      <p class="text-lg mt-4">Discover useful tips for configuration.</p>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="container mx-auto px-4 py-6">
+    <div class="flex items-center space-x-4 text-gray-300 text-sm">
+      <a
+        href="../../index.html"
+        class="hover:text-green-400 transition-colors duration-300">Home</a
+      >
+      <span class="text-gray-500">/</span>
+      <span class="text-gray-400">Tips</span>
+
+      <!-- <a href="#" class="hover:text-green-400 transition-colors duration-300">Tips</a> -->
+      <!-- <span class="text-gray-500">/</span>
+    <span class="text-gray-400">Grouped Cards</span> -->
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-10">
+    <!-- Grouped Cards -->
+    <section>
+      <!-- Programming Group -->
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold text-green-400 mb-4">Programming</h2>
+        <div class="w-24 h-1 bg-green-400 mb-6"></div>
+        <!-- Separator -->
+
+        <div class="space-y-6">
+          <!-- Card 1 -->
+          <a
+            href="../../pages/tips/programming/blog1.html"
+            class="block bg-gray-800 shadow-lg rounded-lg p-6 hover:bg-gray-700 hover:shadow-xl hover:scale-105 transition-transform duration-300 relative"
+          >
+            <div class="absolute top-2 right-2 flex space-x-2">
+              <div
+                class="bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+              >
+                VS Code
+              </div>
+              <div
+                class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+              >
+                Laravel
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-200">
+              Laravel VS code Extension
+              <p class="text-sm text-gray-500">
+                Published on December 25, 2024
+              </p>
+            </h3>
+            <p class="text-gray-400 mt-2">
+              know the helper extension to simplified work.
+            </p>
+          </a>
+          <!-- Card 2 -->
+          <!-- <a href="#python" class="block bg-gray-800 shadow-lg rounded-lg p-6 hover:bg-gray-700 hover:shadow-xl hover:scale-105 transition-transform duration-300 relative">
+                <div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">Javascript</div>    
+                <h3 class="text-2xl font-semibold text-gray-200">Python for Beginners
+                    <p class="text-sm text-gray-500">Published on month date, year</p>
+                </h3>
+                <p class="text-gray-400 mt-2">Start your Python journey with beginner-friendly resources.</p>
+            </a> -->
+        </div>
+      </div>
+
+      <!-- MySQL Group -->
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold text-green-400 mb-4">Database</h2>
+        <div class="w-24 h-1 bg-green-400 mb-6"></div>
+        <!-- Separator -->
+
+        <div class="space-y-6">
+          <!-- Card 1 -->
+          <a
+            href="../../../tips/database/index.html"
+            class="block bg-gray-800 shadow-lg rounded-lg p-6 hover:bg-gray-700 hover:shadow-xl hover:scale-105 transition-transform duration-300 relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+            >
+              MySQL
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-200">
+              Introduction to MySQL Replication (Master-Slave)
+              <p class="text-sm text-gray-500">Published on March 22, 2025</p>
+            </h3>
+            <p class="text-gray-400 mt-2">
+              Understand the basics of MySQL databases replication
+            </p>
+          </a>
+
+          <!-- Card 2 -->
+          <!-- <a href="#advanced-mysql" class="block bg-gray-800 shadow-lg rounded-lg p-6 hover:bg-gray-700 hover:shadow-xl hover:scale-105 transition-transform duration-300 relative">
+                <div class="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">MySQL Advanced</div>
+                <h3 class="text-2xl font-semibold text-gray-200">Advanced MySQL Queries
+                    <p class="text-sm text-gray-500">Published on month date, year</p>
+                </h3>
+                <p class="text-gray-400 mt-2">Learn advanced techniques to optimize your MySQL queries.</p>
+            </a> -->
+
+          <!-- <div class="block bg-gray-700 shadow-lg rounded-lg p-6 opacity-50 cursor-not-allowed relative">
+                <div class="absolute top-2 right-2 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full">Coming Soon</div>
+                <h3 class="text-2xl font-semibold text-gray-400">Introduction to MySQL</h3>
+                <p class="text-sm text-gray-500">Published on Month Date, Year</p>
+                <p class="text-gray-500 mt-2">Understand the basics of MySQL databases and queries.</p>
+            </div> -->
+        </div>
+      </div>
+
+      <!-- Other Topics Group -->
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold text-green-400 mb-4">Other Topics</h2>
+        <div class="w-24 h-1 bg-green-400 mb-6"></div>
+        <!-- Separator -->
+
+        <div class="space-y-6">
+          <!-- Card 1 -->
+          <!-- <a href="#version-control" class="block bg-gray-800 shadow-lg rounded-lg p-6 hover:bg-gray-700 hover:shadow-xl hover:scale-105 transition-transform duration-300 relative">
+                <div class="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">MySQL Advanced</div>
+                <h3 class="text-2xl font-semibold text-gray-200">Version Control with Git
+                    <p class="text-sm text-gray-500">Published on month date, year</p>
+                </h3>
+                <p class="text-gray-400 mt-2">Master version control using Git and GitHub.</p>
+            </a> -->
+
+          <!-- Card 2 -->
+          <!-- <a href="#api-design" class="block bg-gray-800 shadow-lg rounded-lg p-6 hover:bg-gray-700 hover:shadow-xl hover:scale-105 transition-transform duration-300 relative">
+                <div class="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">MySQL Advanced</div>
+                <h3 class="text-2xl font-semibold text-gray-200">API Design Best Practices
+                    <p class="text-sm text-gray-500">Published on month date, year</p>
+                </h3>
+                <p class="text-gray-400 mt-2">Learn how to design efficient and scalable APIs.</p>
+            </a> -->
+
+          <div
+            class="block bg-gray-700 shadow-lg rounded-lg p-6 opacity-50 cursor-not-allowed relative"
+          >
+            <div
+              class="absolute top-2 right-2 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+            >
+              Coming Soon
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-400">
+              API Design Best Practices
+            </h3>
+            <p class="text-sm text-gray-500">Published on Month Date, Year</p>
+            <p class="text-gray-500 mt-2">
+              Learn how to design efficient and scalable APIs. This resource is
+              not yet available.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <!-- <footer class="bg-gray-800 text-white text-center py-4">
+<p>&copy; 2024 Code Guide. All rights reserved.</p>
+</footer> -->
+</Layout>
