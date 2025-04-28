@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/tailwind.astro";
-
+// import Layout from "../layouts/general.astro";
 const pageTitle = "index";
 const bodystyle = "bg-sky-100 font-sans text-gray-800";
 
@@ -26,8 +26,8 @@ const { navName } = frontmatter;
 // FF9149
 ---
 
-<Layout title={pageTitle} bodystyle={bodystyle}
-  ><!-- nav -->
+<Layout title={pageTitle} bodystyle={bodystyle}>
+  <!-- nav -->
   <div class="w-full relative flex justify-center flex-wrap gap-5">
     {
       navName.map((data) => (
@@ -41,10 +41,8 @@ const { navName } = frontmatter;
     }
   </div>
 
-  <div class="content-import">
-    <!-- Render the Markdown content -->
-    <Content />
-  </div>
+  <!-- Render the Markdown content -->
+  <Content />
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
     ><path
@@ -53,10 +51,4 @@ const { navName } = frontmatter;
       d="M0,32L34.3,64C68.6,96,137,160,206,176C274.3,192,343,160,411,122.7C480,85,549,43,617,64C685.7,85,754,171,823,218.7C891.4,267,960,277,1029,277.3C1097.1,277,1166,267,1234,250.7C1302.9,235,1371,213,1406,202.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
     ></path></svg
   >
-
-  <h1>My First Blog Post</h1>
-  <h2>aaaa</h2>
-  <h3>ss</h3>
 </Layout>
-
-<script></script>
