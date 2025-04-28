@@ -16,7 +16,7 @@ description: "Welcome to my new blog about learning Astro! I'll share my journey
 # layout: ../../layouts/tailwind.astro
 ---
 
-# My First Blog Post
+# My First Blog Post {#welcome}
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 

@@ -9,7 +9,7 @@ image:
 tags: ["astro", "blogging", "learning in public"]
 ---
 
-# My First Blog Post
+# My First Blog Post {#welcome}
 
 Published on: 2022-07-01
 
