@@ -1,11 +1,12 @@
 ---
-navName:
-  [
+navName: [
     { name: "home", route: "/", child: [1, 2, 3] },
     { name: "about", route: "/about" },
-    { name: "blog", route: "/blog" },
-    { name: "bootstrap", route: "/bootstrap" },
-    { name: "tailwind", route: "/tailwind/project1" },
+    { name: "notes", route: "/notes" },
+    # { name: "blog", route: "/blog" },
+    { name: "project", route: "/project" },
+    # { name: "bootstrap", route: "/bootstrap" },
+    # { name: "tailwind", route: "/tailwind/project1" },
   ]
 title: "My First Blog Post"
 pubDate: 2022-07-01

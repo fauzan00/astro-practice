@@ -7,6 +7,7 @@ image:
   url: "https://docs.astro.build/assets/rose.webp"
   alt: "The Astro logo on a dark background with a pink glow."
 tags: ["astro", "blogging", "learning in public"]
+navName1: "Some navigation data" # or an array if that's what you expect
 ---
 
 # My First Blog Post {#welcome}

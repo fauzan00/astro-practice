@@ -10,20 +10,17 @@ const htmlString = "<p>Raw HTML content</p>";
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-
-    <!-- <style>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-    </style> -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body style="border: solid;">
+  <body>
     <slot>
       <!-- sss -->
     </slot>

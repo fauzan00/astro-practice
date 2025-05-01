@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/tailwind.astro";
+
+const pageTitle = "index";
+const bodystyle = "bg-sky-100 font-sans text-gray-800";
+
+// If your component is in /src/pages/:
+// import { Content as navName } from "../pages/posts/nav.md";
+
+// imports all files that end with `.md` in `./src/pages/post/`
+// const matches = import.meta.glob("../pages/post/*.md", { eager: true });
+// const posts = Object.values(matches);
+
+// Import the markdown file
+// const { frontmatter } = await import("../pages/posts/nav.md");
+const { frontmatter, Content } = await import("../pages/posts/nav.md");
+// import { Content } from "../pages/post/nav.md";
+
+// Now you can access navName from frontmatter
+const { navName } = frontmatter;
+// const { Isi } = Content;
+
+// 60B5FF
+// AFDDFF
+// FFECDB
+// FF9149
+---
+
+<Layout title={pageTitle} bodystyle={bodystyle}
+  ><!-- nav -->
+  <div class="w-full relative flex justify-center flex-wrap gap-5">
+    {
+      navName.map((data) => (
+        <button class="btn relative inline-flex items-center justify-start overflow-hidden font-medium transition-all bg-indigo-100 rounded hover:bg-white group py-1.5 px-2.5">
+          <span class="w-56 h-48 rounded bg-indigo-600 absolute bottom-0 left-0 translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0" />
+          <span class="relative w-full text-left text-indigo-600 transition-colors duration-300 ease-in-out group-hover:text-white">
+            <a href={data.route}>{data.name}</a>
+          </span>
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="content-import">
+    <!-- Render the Markdown content -->
+    <Content />
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+    ><path
+      fill="#0099ff"
+      fill-opacity="1"
+      d="M0,32L34.3,64C68.6,96,137,160,206,176C274.3,192,343,160,411,122.7C480,85,549,43,617,64C685.7,85,754,171,823,218.7C891.4,267,960,277,1029,277.3C1097.1,277,1166,267,1234,250.7C1302.9,235,1371,213,1406,202.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+    ></path></svg
+  >
+
+  <h1>My First Blog Post</h1>
+  <h2>aaaa</h2>
+  <h3>ss</h3>
+</Layout>
+
+<script></script>

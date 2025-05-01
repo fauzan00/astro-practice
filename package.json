@@ -16,6 +16,7 @@
     "astro": "^5.7.5",
     "astro-bootstrap": "^0.7.0",
     "bootstrap": "^5.3.5",
+    "jquery": "^3.7.1",
     "remark-slug": "^8.0.0",
     "tailwindcss": "^4.1.4"
   }

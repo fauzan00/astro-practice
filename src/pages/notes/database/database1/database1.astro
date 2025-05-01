@@ -1,28 +1,23 @@
 ---
-import Layout from "../layouts/public.astro";
-const { frontmatter } = await import("../pages/posts/nav.md");
+import Layout from "../../../../layouts/public.astro";
+const pageTitle = "about";
+const logo = "fauzant00";
+const { frontmatter } = await import("../../../../pages/posts/nav.md");
 const { navName } = frontmatter;
 
-// const { frontmatter: postFrontmatter } = await import(
-//   "../pages/posts/post-1.md"
-// );
-// const { navName1 } = postFrontmatter; // This now correctly gets "Some navigation data"
-
 // Import the entire markdown file
-const post = await import("../pages/posts/index.md");
+const post = await import(
+  "../../../../pages/notes/database/database1/database1.md"
+);
 
 // Access all frontmatter data
-const { title, pubDate, description, author, image, tags, navName1 } =
+const { title, pubDate, description, author, image, tags, database } =
   post.frontmatter;
 
 // Access the raw Markdown content
 const { rawContent, compiledContent } = post;
 
-const pageTitle = "about";
-const logo = "fauzant00";
-const domain = Astro.url.hostname;
-
-const currentUrl = Astro.url.pathname; // Get current path
+const currentUrl = "/notes";
 ---
 
 <Layout title={pageTitle}>
@@ -50,20 +45,16 @@ const currentUrl = Astro.url.pathname; // Get current path
     </div>
   </nav>
 
-  <!-- <main>
-    <section id="about">
-      <h1>Home</h1>
-      <p>Learn more about what we do and who we are.</p>
-      {navName1}
-      {title}
-    </section>
-  </main> -->
-
   <main>
     <section>
-      <!-- <h1>Home</h1>
-      <p>Learn more about what we do and who we are.</p> -->
-
+      <!-- Breadcrumb HTML -->
+      <div class="breadcrumb">
+        <!-- <a href="/">Home</a>
+        <span> / </span> -->
+        <a href={currentUrl}>Notes</a>
+        <span> / </span>
+        <span class="current">(Database) MySQL Replication</span>
+      </div>
       <div set:html={compiledContent()} />
     </section>
   </main>

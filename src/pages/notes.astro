@@ -1,54 +1,194 @@
 ---
-import Layout from "../layouts/tailwind.astro";
-// import Layout from "../layouts/general.astro";
-const pageTitle = "index";
-const bodystyle = "bg-sky-100 font-sans text-gray-800";
-
-// If your component is in /src/pages/:
-// import { Content as navName } from "../pages/posts/nav.md";
-
-// imports all files that end with `.md` in `./src/pages/post/`
-// const matches = import.meta.glob("../pages/post/*.md", { eager: true });
-// const posts = Object.values(matches);
-
-// Import the markdown file
-// const { frontmatter } = await import("../pages/posts/nav.md");
-const { frontmatter, Content } = await import("../pages/posts/nav.md");
-// import { Content } from "../pages/post/nav.md";
-
-// Now you can access navName from frontmatter
+import Layout from "../layouts/public.astro";
+const { frontmatter } = await import("../pages/posts/nav.md");
 const { navName } = frontmatter;
-// const { Isi } = Content;
 
-// 60B5FF
-// AFDDFF
-// FFECDB
-// FF9149
+// const { frontmatter: postFrontmatter } = await import(
+//   "../pages/posts/post-1.md"
+// );
+// const { navName1 } = postFrontmatter; // This now correctly gets "Some navigation data"
+
+// Import the entire markdown file
+const post = await import("../pages/posts/notes.md");
+
+// Access all frontmatter data
+const { title, pubDate, description, author, image, tags, database } =
+  post.frontmatter;
+
+// Access the raw Markdown content
+const { rawContent, compiledContent } = post;
+
+const logo = "fauzant00";
+const pageTitle = "about";
+const domain = Astro.url.hostname;
+
+const currentUrl = Astro.url.pathname; // Get current path
 ---
 
-<Layout title={pageTitle} bodystyle={bodystyle}>
-  <!-- nav -->
-  <div class="w-full relative flex justify-center flex-wrap gap-5">
-    {
-      navName.map((data) => (
-        <button class="btn relative inline-flex items-center justify-start overflow-hidden font-medium transition-all bg-indigo-100 rounded hover:bg-white group py-1.5 px-2.5">
-          <span class="w-56 h-48 rounded bg-indigo-600 absolute bottom-0 left-0 translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0" />
-          <span class="relative w-full text-left text-indigo-600 transition-colors duration-300 ease-in-out group-hover:text-white">
-            <a href={data.route}>{data.name}</a>
-          </span>
-        </button>
-      ))
-    }
-  </div>
+<Layout title={pageTitle}>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="#" class="logo">{logo}</a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-items">
+        {
+          navName.map((item) => (
+            <li class="nav-item">
+              <a
+                href={item.route}
+                class={currentUrl === item.route ? "active" : ""}
+              >
+                {item.name}
+                {/* {item.route}
+                {domain}
+                {currentUrl} */}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
 
-  <!-- Render the Markdown content -->
-  <Content />
+  <main>
+    <section>
+      <h1>Notes</h1>
+      <p>Discover useful tips for configuration.</p>
+      <br /><br />
+      <!-- <ul>
+        {
+          notes.map((note) => (
+            <li>
+              <a href={`/notes/database/${note.path}`}>{note.title}</a>
+            </li>
+          ))
+        }
+      </ul> -->
 
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
-    ><path
-      fill="#0099ff"
-      fill-opacity="1"
-      d="M0,32L34.3,64C68.6,96,137,160,206,176C274.3,192,343,160,411,122.7C480,85,549,43,617,64C685.7,85,754,171,823,218.7C891.4,267,960,277,1029,277.3C1097.1,277,1166,267,1234,250.7C1302.9,235,1371,213,1406,202.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
-    ></path></svg
-  >
+      <!-- <nav class="database-nav">
+        <ul>
+          {
+            database.map((database) => (
+              <li>
+                <a
+                  href={
+                    database.path
+                      ? `/notes/database/${database.path}/${database.path}`
+                      : "/notes"
+                  }
+                >
+                  {database.title}
+                </a>
+                {database.child && (
+                  <ul>
+                    {database.child.map((databasechild) => (
+                      <li>
+                        <a
+                          href={`/notes/database/${databasechild.path}/${databasechild.path}`}
+                        >
+                          {databasechild.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </nav> -->
+
+      <div class="mysql-group">
+        <h2>Database</h2>
+        <div class="separator"></div>
+
+        <div class="card-container">
+          <!-- Card 1 -->
+          <!-- <a href="../../tailwind/project1/tips/database" class="card">
+            <div class="tag">MySQL</div>
+            <h3>
+              Introduction to MySQL Replication (Master-Slave)
+              <p class="date">Published on March 22, 2025</p>
+            </h3>
+            <p class="description">
+              Understand the basics of MySQL databases replication
+            </p>
+          </a> -->
+
+          {
+            database.map((database) => (
+              <div key={database.id} className="database-parent">
+                <h2 className="parent-title">{database.title}</h2>
+
+                {database.child && (
+                  <div className="child-container">
+                    {database.child.map((databasechild) => (
+                      <a
+                        href={`/notes/database/${databasechild.path}/${databasechild.path}`}
+                        class="card"
+                      >
+                        <div class="tag">MYSQL</div>
+                        <h3>
+                          {databasechild.title}
+                          <p class="date">Published on March 22, 2025</p>
+                        </h3>
+                        <p class="description">
+                          Understand the basics of MySQL databases replication
+                        </p>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Handle mobile menu toggle
+    document
+      .querySelector(".menu-toggle")
+      .addEventListener("click", function () {
+        document.querySelector(".nav-items").classList.toggle("active");
+      });
+
+    // Update active state on hash change
+    window.addEventListener("hashchange", function () {
+      const currentHash = window.location.hash;
+      document.querySelectorAll(".nav-item a").forEach((link) => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === currentHash
+        );
+      });
+
+      // Close mobile menu after selection
+      if (window.innerWidth <= 768) {
+        document.querySelector(".nav-items").classList.remove("active");
+      }
+    });
+
+    // Set initial active state
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentHash = window.location.hash || "#home";
+      document
+        .querySelector(`.nav-item a[href="${currentHash}"]`)
+        ?.classList.add("active");
+    });
+
+    // Close menu when clicking outside (mobile)
+    document.addEventListener("click", function (e) {
+      const nav = document.querySelector(".nav");
+      if (
+        window.innerWidth <= 768 &&
+        !nav.contains(e.target) &&
+        !e.target.classList.contains("menu-toggle")
+      ) {
+        document.querySelector(".nav-items").classList.remove("active");
+      }
+    });
+  </script>
 </Layout>

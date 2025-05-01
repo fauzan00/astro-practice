@@ -9,7 +9,7 @@ const { navName } = frontmatter;
 // const { navName1 } = postFrontmatter; // This now correctly gets "Some navigation data"
 
 // Import the entire markdown file
-const post = await import("../pages/posts/index.md");
+const post = await import("../pages/posts/post-2.md");
 
 // Access all frontmatter data
 const { title, pubDate, description, author, image, tags, navName1 } =
@@ -18,11 +18,16 @@ const { title, pubDate, description, author, image, tags, navName1 } =
 // Access the raw Markdown content
 const { rawContent, compiledContent } = post;
 
-const pageTitle = "about";
 const logo = "fauzant00";
+const pageTitle = "about";
 const domain = Astro.url.hostname;
 
 const currentUrl = Astro.url.pathname; // Get current path
+
+const notes = [
+  { title: "SQL Basics", slug: "sql-basics" },
+  { title: "NoSQL", slug: "database1" },
+];
 ---
 
 <Layout title={pageTitle}>
@@ -50,21 +55,24 @@ const currentUrl = Astro.url.pathname; // Get current path
     </div>
   </nav>
 
-  <!-- <main>
-    <section id="about">
-      <h1>Home</h1>
-      <p>Learn more about what we do and who we are.</p>
-      {navName1}
-      {title}
-    </section>
-  </main> -->
-
   <main>
     <section>
-      <!-- <h1>Home</h1>
-      <p>Learn more about what we do and who we are.</p> -->
+      <h1>Project</h1>
+      <p>Learn more about what we do and who we are.</p>
+      <!-- {navName1}
+      {title}
+      sss
+      <a href={"project/database/database1"}>sssssss</a>
 
-      <div set:html={compiledContent()} />
+      <ul>
+        {
+          notes.map((note) => (
+            <li>
+              <a href={`/notes/database/${note.slug}`}>{note.title}</a>
+            </li>
+          ))
+        }
+      </ul> -->
     </section>
   </main>
 
