@@ -12,13 +12,21 @@ const { navName } = frontmatter;
 const post = await import("../pages/posts/notes.md");
 
 // Access all frontmatter data
-const { title, pubDate, description, author, image, tags, database } =
-  post.frontmatter;
+const {
+  title,
+  pubDate,
+  description,
+  author,
+  image,
+  tags,
+  database,
+  programming,
+} = post.frontmatter;
 
 // Access the raw Markdown content
 const { rawContent, compiledContent } = post;
 
-const logo = "fauzant00";
+const logo = "fauzan00";
 const pageTitle = "about";
 const domain = Astro.url.hostname;
 
@@ -124,24 +132,68 @@ const currentUrl = Astro.url.pathname; // Get current path
                   <div className="child-container">
                     {database.child.map((databasechild) => (
                       <a
-                        href={`/notes/database/${databasechild.path}/${databasechild.path}`}
+                        href={`/notes/database/${databasechild.path}`}
                         class="card"
                       >
-                        <div class="tag">MYSQL</div>
+                        <div class="tag">
+                          {databasechild.tag}
+                        </div>
                         <h3>
                           {databasechild.title}
-                          <p class="date">Published on March 22, 2025</p>
+                          <p class="date">{databasechild.date}</p>
                         </h3>
                         <p class="description">
-                          Understand the basics of MySQL databases replication
+                          {databasechild.description}
                         </p>
                       </a>
+
+                      <br />
                     ))}
                   </div>
                 )}
               </div>
             ))
           }
+        </div>
+      </div>
+
+      <div class="mysql-group">
+        <h2>Programming</h2>
+        <div class="separator"></div>
+
+        <div class="card-container">
+          {
+            programming.map((programming) => (
+              <div key={programming.id} className="database-parent">
+                <h2 className="parent-title">{programming.title}</h2>
+
+                {programming.child && (
+                  <div className="child-container">
+                    {programming.child.map((programmingchild) => (
+                      <a
+                        href={`/notes/programming/${programmingchild.path}`}
+                        class="card"
+                      >
+                        <div class="tag">
+                          {programmingchild.tag}
+                        </div>
+                        <h3>
+                          {programmingchild.title}
+                          <p class="date">{programmingchild.date}</p>
+                        </h3>
+                        <p class="description">
+                          {programmingchild.description}
+                        </p>
+                      </a>
+                    <br />
+
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))
+          }
+          
         </div>
       </div>
     </section>

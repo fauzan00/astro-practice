@@ -31,12 +31,15 @@ title: "Database Installation Guide"
 <div class="separator"></div>
 
 <!-- <div class="mysql-group card-container"> -->
+<br>
+
+##### Published on March 22, 2025
 
 have the basic knowledge replication mysql by own simulation in virtualbox
 
 <!-- </div> -->
 
-Published on March 22, 2025
+<br>
 
 # Introduction
 
@@ -261,6 +264,25 @@ you can use method to copy db as below:
   - scp "source" "destination" <br />
   - scp db.sql sammy@replica_server_ip:/tmp/
 
+- MYSQL DUMP METHOD:
+
+  - mysqldump -u "username" -p "database" "table" > "destination_file.sql" <br />
+  - mysqldump -u test -p db_master > "home/user1.sql"
+
     </div>
+
+</div>
+
+# References
+
+<div class="credentials-box">
+    <div class="hierarchy-list">
+
+- Reference web link:
+
+  - Install Mysql on Ubuntu 20.04 <a target="_blank"
+            href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04">(link)</a>
+  - Setup Mysql Replication <a target="_blank"
+            href="https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql">(link)</a>
 
 </div>

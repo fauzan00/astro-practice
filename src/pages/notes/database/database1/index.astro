@@ -1,33 +1,23 @@
 ---
-import Layout from "../layouts/public.astro";
-const { frontmatter } = await import("../pages/posts/nav.md");
+import Layout from "../../../../layouts/public.astro";
+const pageTitle = "about";
+const logo = "fauzan00";
+const { frontmatter } = await import("../../../../pages/posts/nav.md");
 const { navName } = frontmatter;
 
-// const { frontmatter: postFrontmatter } = await import(
-//   "../pages/posts/post-1.md"
-// );
-// const { navName1 } = postFrontmatter; // This now correctly gets "Some navigation data"
-
 // Import the entire markdown file
-const post = await import("../pages/posts/post-2.md");
+const post = await import(
+  "../../../../pages/notes/database/database1/database_1.md"
+);
 
 // Access all frontmatter data
-const { title, pubDate, description, author, image, tags, navName1 } =
+const { title, pubDate, description, author, image, tags, database } =
   post.frontmatter;
 
 // Access the raw Markdown content
 const { rawContent, compiledContent } = post;
 
-const logo = "fauzan00";
-const pageTitle = "about";
-const domain = Astro.url.hostname;
-
-const currentUrl = Astro.url.pathname; // Get current path
-
-const notes = [
-  { title: "SQL Basics", slug: "sql-basics" },
-  { title: "NoSQL", slug: "database1" },
-];
+const currentUrl = "/notes";
 ---
 
 <Layout title={pageTitle}>
@@ -57,22 +47,15 @@ const notes = [
 
   <main>
     <section>
-      <h1>Project</h1>
-      <p>Learn more about what we do and who we are.</p>
-      <!-- {navName1}
-      {title}
-      sss
-      <a href={"project/database/database1"}>sssssss</a>
-
-      <ul>
-        {
-          notes.map((note) => (
-            <li>
-              <a href={`/notes/database/${note.slug}`}>{note.title}</a>
-            </li>
-          ))
-        }
-      </ul> -->
+      <!-- Breadcrumb HTML -->
+      <div class="breadcrumb">
+        <!-- <a href="/">Home</a>
+        <span> / </span> -->
+        <a href={currentUrl}>Notes</a>
+        <span> / </span>
+        <span class="current">(Database) MySQL Replication</span>
+      </div>
+      <div set:html={compiledContent()} />
     </section>
   </main>
 

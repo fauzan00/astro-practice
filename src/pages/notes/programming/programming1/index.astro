@@ -1,13 +1,13 @@
 ---
 import Layout from "../../../../layouts/public.astro";
 const pageTitle = "about";
-const logo = "fauzant00";
+const logo = "fauzan00";
 const { frontmatter } = await import("../../../../pages/posts/nav.md");
 const { navName } = frontmatter;
 
 // Import the entire markdown file
 const post = await import(
-  "../../../../pages/notes/database/database1/database1.md"
+  "../../../../pages/notes/programming/programming1/programming_1.md"
 );
 
 // Access all frontmatter data
@@ -53,7 +53,7 @@ const currentUrl = "/notes";
         <span> / </span> -->
         <a href={currentUrl}>Notes</a>
         <span> / </span>
-        <span class="current">(Database) MySQL Replication</span>
+        <span class="current">(programming) Laravel vs code extension</span>
       </div>
       <div set:html={compiledContent()} />
     </section>

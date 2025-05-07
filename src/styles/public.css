@@ -204,6 +204,11 @@ section {
 }
 /* end==code */
 
+.icon {
+  width: 100px;
+  height: 100px;
+}
+
 img {
   width: 100%;
   max-width: 600px;
@@ -430,6 +435,10 @@ pre code {
   .container h2 {
     font-size: 1.25rem;
   }
+  th,
+  td {
+    padding: 10px 12px;
+  }
 }
 
 ======hierarchy list========= .hierarchy-list {
@@ -532,5 +541,77 @@ pre code {
 
 .breadcrumb .current {
   color: #333;
+  font-weight: 500;
+}
+
+a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0 10px 0 0;
+}
+a:hover {
+  color: var(--accent-blue-light);
+  transition: color 0.2s;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  background-color: var(--prussian-blue);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background-color: var(--bg-darker);
+  color: var(--primary);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+}
+
+tr {
+  transition: all 0.2s ease;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateX(2px);
+}
+
+.status-active {
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+.status-inactive {
+  color: #cf6679;
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.highlight {
+  color: var(--primary);
   font-weight: 500;
 }
